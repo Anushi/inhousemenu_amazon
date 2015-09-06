@@ -1,0 +1,52 @@
+{% extends 'newtheme/base.html' %}
+
+{% load url from future %}
+{% load staticfiles %}
+
+{% block content %}
+
+<script type="text/javascript">
+  $(function() {
+    var ingredients = [
+      {% for ingredient in ingredients %}
+      	"{{ ingredient.name }}",
+      {% endfor %}
+    ];
+    $('#input_ingedients').autocomplete({source: ingredients});
+    $('#ac_ingredients').on('submit', function(e) {
+    	e.preventDefault();
+    	var elm = "<li>" + $('#input_ingedients').val() + "</li>";
+    	$('#ingredients_list').append(elm);
+    });
+  });
+  </script>
+
+<div class="container">
+
+	<header class="major">
+
+		<div id="search1">
+		<img src="{% static 'images/imageedit_1_6594256825.png' %}">
+			<form id="ac_ingredients">
+				<input id="input_ingedients" type="text" name="ingredients" value="Enter your ingredients">
+				<input type="submit" id="submit">Submit</button>
+			</form>
+
+        </div>
+	</header>
+
+    <div id="chopping">
+    	<ul id="ingredients_list">
+    	</ul>
+    </div>
+</div>
+<div id="button123">
+	<p></p>
+	<form id="search_form" method="post" action="{% url 'recipeList' %}">
+		{% csrf_token %}
+		<input type="submit" value="Mix it up!" style="margin-left:auto;margin-right:auto;">
+	</form>
+</div>
+
+
+{% endblock %}

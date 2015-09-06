@@ -23,11 +23,12 @@ fieldfile = FieldFile(None, FakeField, 'dummy.txt')
 
 
 class HomePageView(TemplateView):
-    template_name = 'home.html'
+    template_name = 'newtheme/home.html'
 
     def get_context_data(self, **kwargs):
         context = super(HomePageView, self).get_context_data(**kwargs)
         messages.info(self.request, 'This is a demo of a message.')
+        context['ingredients'] = Ingredient.objects.all()
         return context
 
 class DefaultFormsetView(FormView):
@@ -98,6 +99,10 @@ class MiscView(TemplateView):
 
 class RecipeListView(TemplateView):
     template_name = 'recipes/list.html'
+    
+    def post(self, request, *args, **kwargs):
+        context = self.get_context_data()
+        return self.render_to_response(context)
 
     def get_context_data(self, **kwargs):
         context = super(RecipeListView, self).get_context_data(**kwargs)
@@ -114,7 +119,6 @@ class RecipeListView(TemplateView):
         except EmptyPage:
             # If page is out of range (e.g. 9999), deliver last page of results.
             show_lines = paginator.page(paginator.num_pages)
-
 
         context['recipes_list'] = show_lines
         return context
