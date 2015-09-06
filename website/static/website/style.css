@@ -1,0 +1,137 @@
+
+body {
+	background-image: url('http://www.sbs.com.au/food/profiles/sbsdistribution/themes/global/images/009-subtle-light-patterns.gif');
+	background-color: rgb(255,255,255);
+	background-origin: padding-box;
+	background-size: auto;
+	background-attachment: scroll;
+}
+
+div .container-fluid {
+	padding-right: 10px;
+}
+
+div .clear {
+	clear: both;
+}
+
+#header {
+	margin-bottom: 10px;
+	height: 128px;
+	background-color: #fff;
+}
+#header_left {
+}
+#header_center {
+	text-align: center;
+	vertical-align: center;
+}
+#header_right {
+	vertical-align: center;
+	text-align: right;
+	padding-top: 39px;
+}
+#header_right .btn-group {
+	float: right;
+}
+#header_right .btn{
+	height: 50px;
+	background-color: #eee;
+	font-size: 1.2em;
+}
+#header_right .btn img{
+	height: 30px;
+}
+
+ul.nav .glyphicon {
+	margin-right: 5px;
+} 
+
+#recipe_description {
+	font-size: 1.2em;
+	padding: 10px;
+}
+#recipe-info {
+	margin-bottom: 20px;
+	padding-top: 5px;
+	padding-bottom: 5px;
+	background-image: url('http://www.sbs.com.au/global/profiles/sbsdistribution/themes/global/images/bg-recipe-overview.png');
+	background-size: 100% 59px;
+	width: 100%;
+}
+.recipe-info-field-heading {
+	color: green;
+	text-transform: uppercase;
+	text-align: right;
+}
+.recipe-info-field {
+	color: green;
+	font-size: 1.4em;
+	font-weight: bold;
+	border-top: 1px solid green;
+}
+
+#recipe_ingredients .ingredient-list {
+	list-style-type: none;
+    padding: 0px;
+    margin: 0px;
+}
+
+#recipe_ingredients .ingredient-list-header {
+	color: green;
+	border-bottom: 2px solid green;
+	font-weight: bold;
+	font-size: 1.8em;
+}
+#ingredients_buy {
+	float: right;
+	color: green;
+}
+
+#recipe_ingredients .ingredient-list-item {
+	font-size: 1.2em;
+	padding: 10px;
+}
+#recipe_ingredients .ingredient-list-item {
+	border-bottom: 1px solid #ccc;
+}
+
+#recipe_method .method-header {
+	color: green;
+	border-bottom: 2px solid green;
+	font-weight: bold;
+	font-size: 1.8em;
+	width: 100%;
+}
+#recipe_method .method-content {
+	font-size: 1.2em;
+	padding-top: 10px;
+}
+#recipe_method .method-content li {
+	padding: 5px;
+}
+
+#ingredient_suggestions_header {
+	color: green;
+	border-bottom: 2px solid green;
+	font-weight: bold;
+	font-size: 1.8em;
+}
+#ingredient_suggestions {
+	margin-top: 10px;
+}
+#ingredient_suggestions ul {
+	list-style-type: none;
+	padding-top: 1.4em;
+	padding-left: 0;
+	padding-bottom: 0;
+	padding-right: 0;
+}
+#ingredient_suggestions li {
+	text-align: left;
+	padding-top: 1.4em;
+}
+
+#ingredient_suggestions .ingredient-suggestion-img {
+	text-align: right;
+}

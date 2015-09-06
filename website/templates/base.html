@@ -1,0 +1,44 @@
+{% extends 'bootstrap.html' %}
+
+{% load url from future %}
+
+{% load bootstrap3 %}
+
+{% block bootstrap3_extra_head %}
+    {% load staticfiles %}
+    <link rel="stylesheet" type="text/css" href="{% static 'website/style.css' %}" />
+{% endblock %}
+
+{% block bootstrap3_content %}
+     <div class="container-fluid">
+        <div class="row" id="header">
+            <div id="header_left" class="col-sm-2"></div>
+            <div id="header_center" class="col-sm-8">
+                <a href="/site"><img src="{% static 'inhousemenu_logo.png' %}" /></a>
+            </div>
+            <div id="header_right" class="col-sm-2">
+                <div class="btn-toolbar" role="toolbar" aria-label="...">
+                    <div class="btn-group" role="group" aria-label="...">
+                        <button type="button" class="btn btn-deafult">Welcome, Name</button>
+                        <button type="button" class="btn btn-deafult"><img class="img-circle" src="http://ciis-bpso.com/img/avatar2.png"/></button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        {% bootstrap_messages %}
+
+        <div class="row">
+            <div class="col-sm-2">
+                <ul class="nav nav-stacked">
+                    <li role="presentation" class="active"><a href="{% url 'home' %}"><span class="glyphicon glyphicon-home"></span>Home</a></li>
+                    <li role="presentation" ><a href="{% url 'recipeList' %}"><span class="glyphicon glyphicon-list"></span>Recipies</a></li>
+                </ul>
+            </div>
+            <div id="content" class="col-sm-10">{% block content %}(no content){% endblock %}</div>
+        </div>
+
+        
+    </div> 
+
+{% endblock %}

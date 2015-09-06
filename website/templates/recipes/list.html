@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+
+{% load bootstrap3 %}
+
+{% block title %}
+    Recipies
+{% endblock %}
+
+{% block content %}
+
+    
+    
+    <div class="row">
+    {% for recipe in recipes_list %}
+        <div class="col-sm-3">
+            <div><a href="/site/recipes/{{ recipe.id }}"><img class="img-responsive" src="{{ recipe.featured_image.image_key }}" /></a></div>
+            <div><a href="/site/recipes/{{ recipe.id }}">{{ recipe.name }}</a></div>
+        </div>
+    {% endfor %}
+    </div>
+    
+    
+
+    <hr>
+
+    {% bootstrap_pagination recipes_list url="/site/recipe?page=1&flop=flip" extra="q=foo" size="small" %}
+
+    {# {% bootstrap_pagination recipes_list url="/site/recipe?page=1" size="large" %} #}
+
+{% endblock %}

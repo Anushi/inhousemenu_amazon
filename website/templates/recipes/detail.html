@@ -1,0 +1,93 @@
+{% extends 'base.html' %}
+
+{% load bootstrap3 %}
+
+{# Display django.contrib.messages as Bootstrap alerts #}
+{% bootstrap_messages %}
+
+{% block content %}
+<h1>{{ recipe.name }}</h1>
+<div id="recipe_detail" class="row">
+	
+	<div id="recipe_description"><p>{{ recipe.description |safe }}</p></div>
+
+	<div id="recipe-info" class="row">
+		<div class="col-sm-3">
+			<div class="recipe-info-field-heading">Serves</div>
+			<div class="recipe-info-field">{{ recipe.serves }}</div>
+		</div>
+		<div class="col-sm-3">
+			<div class="recipe-info-field-heading">Preparation</div>
+			<div class="recipe-info-field">{{ recipe.preparation }} min</div>
+		</div>
+		<div class="col-sm-3">
+			<div class="recipe-info-field-heading">Cooking</div>
+			<div class="recipe-info-field">{{ recipe.cooking }} min</div>
+		</div>
+		<div class="col-sm-3">
+			<div class="recipe-info-field-heading">Skill Level</div>
+			<div class="recipe-info-field">{{ recipe.difficulty }}</div>
+		</div>
+	</div>
+
+	<div id="recipe_img" class="col-sm-3"><img src="{{ recipe.featured_image.image_key }}" width="100%" ></div>
+
+	<div id="recipe_content" class="col-sm-9">
+		<div class="row">
+			<div id="recipe_ingredients" class="col-sm-4">
+				<ul class="ingredient-list">
+				<li class="ingredient-list-header">Ingredients<a href="#"><span id="ingredients_buy" class="glyphicon glyphicon-shopping-cart"></span></a></li>
+				{% for ingredient in ingredients %}
+					<li class="ingredient-list-item">{{ ingredient.get_qty }} {{ ingredient.ingredient.name }}</li>
+				{% endfor %}
+				</ul>
+			</div>
+			<div id="recipe_method" class="col-sm-8">
+				<div class="method-header">Instructions</div>
+				<div class="method-content">{{ recipe.method |safe }}</div>
+			</div>
+		</div>
+	</div>
+	<div class="clear"></div>
+	<div id="ingredient_suggestions_container">
+		<div class="row"><div id="ingredient_suggestions_header" col="col-sm-12">Do you need ingedients?</div></div>
+		<div id="ingredient_suggestions" class="row">
+			<div class="col-sm-2 ingredient-suggestion-img">
+				<a href="#"><img src="http://www.aeroplanemasala.com/images/Aeroplane-Chilli-Pouch-new_big.png" width="50%" /></a>
+			</div>
+			<div class="col-sm-2 ingredient-suggestions-text">
+				<a href="#">
+					<ul>
+						<li>ABC Indian Stores, Randwick</li>
+						<li>$3.00 (100gm)</li>
+					</ul>
+				</a>
+			</div>
+			<div class="col-sm-2 ingredient-suggestion-img">
+				<a href="#"><img src="http://www.supraorganics.com/images/organic-red-chilli.jpg" width="50%" /></a>
+			</div>
+			<div class="col-sm-2 ingredient-suggestions-text">
+				<a href="#">
+					<ul>
+						<li>Taj Stores, Paddington</li>
+						<li>$2.00 (100gm)</li>
+					</ul>
+				</a>
+			</div>
+			<div class="col-sm-2 ingredient-suggestion-img">
+				<a href="#"><img src="http://www.mattas.co.uk/sites/default/files/imagecache/product_full/images/products/rajah-ground-cumin.jpg" width="50%" /></a>
+			</div>
+			<div class="col-sm-2 ingredient-suggestions-text">
+				<a href="#">
+					<ul>
+						<li>Taj Stores, Paddington</li>
+						<li>$5.00 (200gm)</li>
+					</ul>
+				</a>
+			</div>
+		</div>
+	</div>
+	
+
+</div>
+{% endblock %}
